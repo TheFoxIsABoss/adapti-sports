@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адаптивный спорт Горный улус</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+
+  <style>
+    /* Дополнительные стили для лучшего вида */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    .navbar {
+      background-color: #007bff; /* Синий цвет для шапки */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar-brand img {
+      height: 40px; /* Размер логотипа */
+      margin-right: 10px;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important; /* Белый текст */
+    }
+    .navbar-brand:hover, .nav-link:hover {
+      color: #e9ecef !important; /* Цвет при наведении */
+    }
+    .hero-section {
+      background: url('wallpaper.png') no-repeat center center; /* Используем wallpaper.png как фон */
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    .hero-section::before { /* затемнение для лучшей читаемости текста */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      background-color: #28a745; /* Зеленая кнопка */
+      border-color: #28a745;
+    }
+    .btn-primary:hover {
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+    .section-title {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #007bff;
+    }
+    .card {
+      margin-bottom: 20px;
+      border: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .card-header {
+      background-color: #e9ecef;
+      border-bottom: none;
+      cursor: pointer;
+    }
+    .card-header h2 button {
+      text-decoration: none;
+      color: #495057;
+      font-weight: bold;
+      text-align: left;
+      width: 100%;
+      padding: 10px 0;
+    }
+    .card-body {
+      background-color: #fff;
+      padding: 20px;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      margin-top: 50px;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    /* Стили для нового раздела "Адаптивные дисциплины" */
+    .discipline-card {
+      border: 1px solid #dee2e6;
+      border-radius: .25rem;
+      margin-bottom: 15px;
+      overflow: hidden; /* Чтобы изображение не выходило за границы */
+    }
+    .discipline-image {
+      width: 100%;
+      height: 200px; /* Фиксированная высота для изображений */
+      object-fit: cover; /* Масштабирование с сохранением пропорций */
+      display: block; /* Убирает лишний отступ снизу */
+    }
+    .discipline-title {
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .discipline-description {
+      line-height: 1.6;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="logo2.png" alt="Логотип">
+          Адаптивный спорт
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#stats">Статистика</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#disciplines">Дисциплины</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#attachments">Документы</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section" aria-label="Главный баннер">
+      <div class="container hero-content">
+        <h1 class="display-4">Добро пожаловать в мир адаптивного спорта Республики Саха (Якутия), Горный улуc!</h1>
+        <p class="lead">Информация, статистика и дисциплины для развития спорта для всех.</p>
+        <a href="#stats" class="btn btn-primary btn-lg">Узнать больше</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="stats" class="container mt-5" aria-label="Статистика участников">
+      <h3 class="section-title text-center">Статистика участников</h3>
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header" id="headingOverall">
+              <h4 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOverall" aria-expanded="true" aria-controls="collapseOverall">
+                  Общая статистика
+                </button>
+              </h4>
+            </div>
+            <div id="collapseOverall" class="collapse show" aria-labelledby="headingOverall" data-parent="#statsAccordion">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Год</th>
+                        <th>Девочки</th>
+                        <th>Мальчики</th>
+                        <th>Всего</th>
+                      </tr>
+                    </thead>
+                    <tbody id="overview-body">
+                      <!-- Данные будут загружены здесь -->
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td><strong>Итого:</strong></td>
+                        <td id="tot-females">0</td>
+                        <td id="tot-males">0</td>
+                        <td id="tot-all">0</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="statsAccordion">
+        <!-- Статистика по видам спорта -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" id="headingVB">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseVB" aria-expanded="false" aria-controls="collapseVB">
+                  Волейбол сидя
+                </button>
+              </h4>
+            </div>
+            <div id="collapseVB" class="collapse" aria-labelledby="headingVB" data-parent="#statsAccordion">
+              <div class="card-body">
+                <table class="table table-sm table-bordered">
+                  <thead><tr><th>Год</th><th>Д</th><th>М</th><th>Всего</th></tr></thead>
+                  <tbody id="vb-sm-body"></tbody>
+                    <tfoot>
+                      <tr><td><strong>Итого:</strong></td><td id="vb-g">0</td><td id="vb-b">0</td><td id="vb-t">0</td></tr>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" id="headingLA">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseLA" aria-expanded="false" aria-controls="collapseLA">
+                  Легкая атлетика
+                </button>
+              </h4>
+            </div>
+            <div id="collapseLA" class="collapse" aria-labelledby="headingLA" data-parent="#statsAccordion">
+              <div class="card-body">
+                <table class="table table-sm table-bordered">
+                  <thead><tr><th>Год</th><th>Д</th><th>М</th><th>Всего</th></tr></thead>
+                  <tbody id="la-sm-body"></tbody>
+                    <tfoot>
+                      <tr><td><strong>Итого:</strong></td><td id="la-g">0</td><td id="la-b">0</td><td id="la-t">0</td></tr>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" id="headingBK">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBK" aria-expanded="false" aria-controls="collapseBK">
+                  Баскетбол на колясках
+                </button>
+              </h4>
+            </div>
+            <div id="collapseBK" class="collapse" aria-labelledby="headingBK" data-parent="#statsAccordion">
+              <div class="card-body">
+                <table class="table table-sm table-bordered">
+                  <thead><tr><th>Год</th><th>Д</th><th>М</th><th>Всего</th></tr></thead>
+                  <tbody id="bk-body"></tbody>
+                    <tfoot>
+                      <tr><td><strong>Итого:</strong></td><td id="bk-g">0</td><td id="bk-b">0</td><td id="bk-t">0</td></tr>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" id="headingSH">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSH" aria-expanded="false" aria-controls="collapseSH">
+                  Стрельба пулевая
+                </button>
+              </h4>
+            </div>
+            <div id="collapseSH" class="collapse" aria-labelledby="headingSH" data-parent="#statsAccordion">
+              <div class="card-body">
+                <table class="table table-sm table-bordered">
+                  <thead><tr><th>Год</th><th>Д</th><th>М</th><th>Всего</th></tr></thead>
+                  <tbody id="sh-body"></tbody>
+                    <tfoot>
+                      <tr><td><strong>Итого:</strong></td><td id="sh-g">0</td><td id="sh-b">0</td><td id="sh-t">0</td></tr>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" id="headingSW">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSW" aria-expanded="false" aria-controls="collapseSW">
+                  Плавание
+                </button>
+              </h4>
+            </div>
+            <div id="collapseSW" class="collapse" aria-labelledby="headingSW" data-parent="#statsAccordion">
+              <div class="card-body">
+                <table class="table table-sm table-bordered">
+                  <thead><tr><th>Год</th><th>Д</th><th>М</th><th>Всего</th></tr></thead>
+                  <tbody id="sw-body"></tbody>
+                    <tfoot>
+                      <tr><td><strong>Итого:</strong></td><td id="sw-g">0</td><td id="sw-b">0</td><td id="sw-t">0</td></tr>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="disciplines" class="container mt-5" aria-label="Адаптивные дисциплины">
+      <h3 class="section-title text-center">Адаптивные дисциплины</h3>
+
+      <div class="row">
+        <!-- Волейбол сидя -->
+        <div class="col-md-4 discipline-card">
+          <img src="volleyball_sitting.jpg" alt="Волейбол сидя" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Волейбол сидя</h4>
+            <p class="discipline-description">
+              Адаптивный волейбол сидя — это увлекательный командный вид спорта, адаптированный для людей с ограниченными возможностями. Игроки сидят на полу и передвигаются, перемещая мяч через сетку. Этот вид спорта развивает координацию, силу и командный дух, предлагая захватывающий игровой процесс, доступный каждому.
+            </p>
+          </div>
+        </div>
+
+        <!-- Легкая атлетика -->
+        <div class="col-md-4 discipline-card">
+          <img src="athletics.jpg" alt="Легкая атлетика" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Легкая атлетика</h4>
+            <p class="discipline-description">
+              Адаптивная легкая атлетика охватывает широкий спектр дисциплин, таких как бег на различные дистанции (включая бег на колясках), прыжки в длину и высоту, а также метания (диск, копье, ядро). Спортсмены соревнуются в различных классах, основанных на их физических возможностях, показывая невероятную силу, скорость и выносливость.
+            </p>
+          </div>
+        </div>
+
+        <!-- Баскетбол на колясках -->
+        <div class="col-md-4 discipline-card">
+          <img src="wheelchair_basketball.jpg" alt="Баскетбол на колясках" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Баскетбол на колясках</h4>
+            <p class="discipline-description">
+              Баскетбол на колясках — это динамичный и зрелищный вид паралимпийского спорта. Игроки управляют своими колясками, ведут мяч и забрасывают его в корзину. Игра требует высочайшей степени ловкости, стратегии и физической подготовки, предлагая напряженные матчи и демонстрируя мастерство спортсменов.
+            </p>
+          </div>
+        </div>
+
+        <!-- Стрельба пулевая -->
+        <div class="col-md-4 discipline-card">
+          <img src="shooting.jpg" alt="Стрельба пулевая" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Стрельба пулевая</h4>
+            <p class="discipline-description">
+              Адаптивная пулевая стрельба — это вид спорта, требующий исключительной концентрации, точности и контроля. Спортсмены, сидя или стоя (в зависимости от класса), стреляют из пневматического или малокалиберного оружия по мишеням. Этот вид спорта отлично подходит для развития психомоторных навыков и самообладания.
+            </p>
+          </div>
+        </div>
+
+        <!-- Плавание -->
+        <div class="col-md-4 discipline-card">
+          <img src="swimming.jpg" alt="Плавание" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Плавание</h4>
+            <p class="discipline-description">
+              Паралимпийское плавание включает соревнования на различных дистанциях в различных стилях, адаптированных для спортсменов с различными типами инвалидности. Вода предоставляет уникальную среду, где многие ограничения могут быть сглажены, позволяя спортсменам демонстрировать свою силу, технику и скорость на высочайшем уровне.
+            </p>
+          </div>
+        </div>
+
+        <!-- Дополнительная дисциплина (пример) -->
+        <div class="col-md-4 discipline-card">
+          <img src="adaptive_rowing.jpg" alt="Адаптивная гребля" class="discipline-image">
+          <div class="card-body">
+            <h4 class="discipline-title">Адаптивная гребля</h4>
+            <p class="discipline-description">
+              Адаптивная гребля позволяет людям с физическими ограничениями участвовать в гребном спорте. Специально оборудованные лодки и снаряды делают эту дисциплину доступной, развивая выносливость, силу и координацию. Участие в гребле на реке или озере дарит уникальные ощущения и возможность испытать себя.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Раздел документов, отправленных вами позже -->
+    <section id="attachments" class="mt-5" aria-label="Документы">
+      <h3 class="text-center section-title">Дополнительные документы</h3>
+      <p class="text-center">
+      </p>
+      <!-- Пример добавления ссылки на документ: -->
+      <!-- <div class="text-center">
+        <a href="path/to/your/document.pdf" target="_blank" class="btn btn-outline-primary">Открыть ДЭЛИ ПП</a>
+      </div> -->
+    </section>
+	<!-- Добавьте этот блок в ваш <section id="attachments"> или другое подходящее место -->
+	<div class="text-center">
+		<a href="SQLCODE.sql" download class="btn btn-success btn-lg mt-3">
+			<i class="fas fa-download mr-2"></i> Скачать базу данных (SQL)
+		</a>
+		<p class="mt-2"><em>(Нажмите, чтобы скачать файл базы данных в формате SQL)</em></p>
+	</div>
+
+	
+  </main>
+
+  <footer class="text-center py-3">
+    <span>© 2026 Адаптивный спорт</span>
+  </footer>
+
+  <!-- Bootstrap JS (через bundle, включает Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // --------------- Данные из файла ДЭЛИ ПП.docx ---------------
+    // Интерпретированные данные из вашего документа
+    const generalStatsData = [
+      { year: 2005, girls: 0, boys: 1 },
+      { year: 2006, girls: 0, boys: 0 },
+      { year: 2007, girls: 0, boys: 1 },
+      { year: 2008, girls: 1, boys: 4 },
+      { year: 2009, girls: 3, boys: 3 },
+      { year: 2010, girls: 4, boys: 2 },
+      { year: 2011, girls: 2, boys: 3 },
+      { year: 2012, girls: 1, boys: 2 },
+      { year: 2013, girls: 3, boys: 4 },
+      { year: 2014, girls: 2, boys: 5 },
+      { year: 2015, girls: 1, boys: 2 },
+      { year: 2016, girls: 1, boys: 3 },
+      { year: 2017, girls: 4, boys: 6 },
+      { year: 2018, girls: 2, boys: 6 },
+      { year: 2019, girls: 2, boys: 3 },
+      { year: 2020, girls: 2, boys: 4 },
+      { year: 2021, girls: 1, boys: 2 },
+      { year: 2022, girls: 0, boys: 0 },
+      { year: 2023, girls: 0, boys: 0 },
+      { year: 2024, girls: 0, boys: 1 },
+      { year: 2025, girls: 0, boys: 0 },
+      { year: 2026, girls: 1, boys: 0 }
+    ];
+
+    // Пример данных для отдельных видов (пока статичные, можно будет заменить)
+    // Предполагаем, что статистика по видам спорта будет в отдельном документе/таблице.
+    // На данный момент, я заполнил их псевдо-данными.
+    const vbData  = [{ year:2007, girls:2, boys:5 }, { year:2008, girls:1, boys:3 }];
+    const laData  = [{ year:2008, girls:1, boys:4 }, { year:2009, girls:3, boys:3 }];
+    const bkData  = [{ year:2007, girls:2, boys:5 }, { year:2008, girls:1, boys:3 }];
+    const shData  = [{ year:2009, girls:2, boys:2 }];
+    const swData  = [{ year:2010, girls:4, boys:2 }];
+    // ----------------------------------------------------------
+
+
+    // Функция для заполнения таблицы
+    function fillTable(tbodyId, rows) {
+      const tb = document.getElementById(tbodyId);
+      if (!tb) return;
+      tb.innerHTML = rows.map(r => `<tr><td>${r.year}</td><td>${r.girls}</td><td>${r.boys}</td><td>${r.girls + r.boys}</td></tr>`).join('') || '<tr><td colspan="4">Данные отсутствуют</td></tr>';
+    }
+
+    // Функция для подсчета итогов
+    function calculateTotals(rows) {
+      let totalGirls = 0;
+      let totalBoys = 0;
+      if (rows.length > 0) {
+          totalGirls = rows.reduce((a,b) => a + b.girls, 0);
+          totalBoys  = rows.reduce((a,b) => a + b.boys, 0);
+      }
+      return { girls: totalGirls, boys: totalBoys, total: totalGirls + totalBoys };
+    }
+
+    // Заполнение общей статистики
+    const overviewBody = document.getElementById('overview-body');
+    if (overviewBody) {
+      overviewBody.innerHTML = generalStatsData.map(d => `<tr><td>${d.year}</td><td>${d.girls}</td><td>${d.boys}</td><td>${d.girls + d.boys}</td></tr>`).join('');
+
+      const totals = calculateTotals(generalStatsData);
+      document.getElementById('tot-females').textContent = totals.girls;
+      document.getElementById('tot-males').textContent  = totals.boys;
+      document.getElementById('tot-all').textContent    = totals.total;
+    }
+
+    // Заполнение таблиц видов спорта
+    fillTable('vb-sm-body', vbData);
+    fillTable('la-sm-body', laData);
+    fillTable('bk-body', bkData);
+    fillTable('sh-body', shData);
+    fillTable('sw-body', swData);
+
+    // Итоги по каждой таблице видов спорта
+    const vbTotals = calculateTotals(vbData);
+    document.getElementById('vb-g').textContent = vbTotals.girls;
+    document.getElementById('vb-b').textContent = vbTotals.boys;
+    document.getElementById('vb-t').textContent = vbTotals.total;
+
+    const laTotals = calculateTotals(laData);
+    document.getElementById('la-g').textContent = laTotals.girls;
+    document.getElementById('la-b').textContent = laTotals.boys;
+    document.getElementById('la-t').textContent = laTotals.total;
+
+    const bkTotals = calculateTotals(bkData);
+    document.getElementById('bk-g').textContent = bkTotals.girls;
+    document.getElementById('bk-b').textContent = bkTotals.boys;
+    document.getElementById('bk-t').textContent = bkTotals.total;
+
+    const shTotals = calculateTotals(shData);
+    document.getElementById('sh-g').textContent = shTotals.girls;
+    document.getElementById('sh-b').textContent = shTotals.boys;
+    document.getElementById('sh-t').textContent = shTotals.total;
+
+    const swTotals = calculateTotals(swData);
+    document.getElementById('sw-g').textContent = swTotals.girls;
+    document.getElementById('sw-b').textContent = swTotals.boys;
+    document.getElementById('sw-t').textContent = swTotals.total;
+
+    // Если данные не будут найдены, в ячейках останется "-" если totals.total === 0,
+    // или "Данные отсутствуют" если rows.length === 0
+    function setEmptyTotals(elementIds) {
+        elementIds.forEach(id => {
+            const element = document.getElementById(id);
+            if (element && element.textContent === '-') {
+                 element.textContent = '0';
+            }
+        });
+    }
+    setEmptyTotals(['vb-g', 'vb-b', 'vb-t', 'la-g', 'la-b', 'la-t', 'bk-g', 'bk-b', 'bk-t', 'sh-g', 'sh-b', 'sh-t', 'sw-g', 'sw-b', 'sw-t']);
+    setEmptyTotals(['tot-females', 'tot-males', 'tot-all']);
+
+  </script>
+</body>
+</html>
